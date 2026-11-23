@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+# colcon (person_description_interfaces is ament_cmake - generates these if
+# ever built in-place instead of the workspace's own build/install)
+build/
+install/
+log/
+
+# Secrets (GROQ_API_KEY, etc) - see .env.example for the expected keys
+.env

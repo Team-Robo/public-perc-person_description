@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>person_description</name>
+  <version>0.0.1</version>
+  <description>Visual appearance description (hair, clothing, glasses) for a
+    tracked person, via VLM - serves /perception/people/describe.</description>
+  <maintainer email="teamrobontu@gmail.com">Nanyang Technological University Team Robo</maintainer>
+  <author>Khiem Nguyen</author>
+  <author>Tan Jin Hern</author>
+  <license>Apache-2.0</license>
+
+  <depend>person_description_interfaces</depend>
+  <depend>person_body_interfaces</depend>
+  <depend>person_face_interfaces</depend>
+  <depend>person_pose_interfaces</depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

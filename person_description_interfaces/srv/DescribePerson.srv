@@ -1,0 +1,30 @@
+# Request
+int32 body_track_id       # perc-person_body track id of the person to describe -
+                           # stable across turn-arounds/occlusion, matches
+                           # BodyTrack.body_track_id on /perception/people/bodies.
+
+---
+# Response
+bool success               # false only if no describable (front-facing,
+                            # good-confidence) frame was found within the
+                            # service's timeout - nobody usable, not "wrong
+                            # guess". Attribute fields are meaningless if false.
+
+string hair_color          # e.g. "black", "brown", "blonde", "gray", "red"
+float32 hair_color_confidence
+string clothing_color      # dominant color of the primary visible garment
+float32 clothing_color_confidence
+bool glasses_present
+float32 glasses_confidence
+bool hat_present            # replaced hair_length - "short" vs "medium" is
+                             # a fuzzy judgment call a referee can easily
+                             # disagree with; hat presence is binary and
+                             # visually obvious like glasses_present, and a
+                             # hat makes hair_length unanswerable anyway.
+float32 hat_confidence
+
+string description         # ready-to-speak sentence, composed only from
+                            # whichever attributes clear the node's own
+                            # confidence threshold - callers should not
+                            # need to re-filter the fields above themselves.
+string message              # human-readable detail (e.g. timeout reason)
